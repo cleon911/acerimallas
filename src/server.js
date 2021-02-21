@@ -1,10 +1,26 @@
 const express = require('express');
 const path    = require('path');
 const exphbs  = require('express-handlebars');
+const method_override = require('method-override');
+const flash = require('connect-flash');
+const session = require('express-session');
+const passport = require('passport');
+//const cors = require('cors');
+//const bodyParser = require('body-parser');
+//const logger = require('morgan');
+const multer = require('multer');
 
 
 //inicializadores
+require('./configuracion/passport');
 const app = express();
+const storage = multer.diskStorage({
+    destination: path.join(__dirname, 'public/uploads'),
+    filename: (req, file, cb) => {
+        cb(null,file.originalname);
+    }
+});
+
 
 
 //configuraciones
@@ -21,51 +37,7 @@ app.set('view engine', '.hbs');
 
 //middlewares
 app.use(express.urlencoded({ extended: false }));
-
-
-//variables globales
-//rutas
-
-//archivos estaticos
-app.use(express.static(path.join(__dirname,'public')));
-
-
-
-module.exports = app;
-
-
-
-/*
-
-
-
-const method_override = require('method-override');
-const flash = require('connect-flash');
-const session = require('express-session');
-const passport = require('passport');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const logger = require('morgan');
-const multer = require('multer');
-
-
-//inicializadores
-require('./configuracion/passport');
-
-
-const storage = multer.diskStorage({
-    destination: path.join(__dirname, 'public/uploads'),
-    filename: (req, file, cb) => {
-        cb(null,file.originalname);
-    }
-});
-
-
-
-//configuraciones
-
-//middlewares
-app.use(bodyParser.json());
+//app.use(bodyParser.json());
 app.use(method_override('_method'));
 app.use(session({
     secret: 'secret',
@@ -75,10 +47,9 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-app.use(cors());
-app.use(logger('dev'));
+//app.use(cors());
+//app.use(logger('dev'));
 app.use(multer({ storage: storage }).single('img'));
-
 
 
 
@@ -94,9 +65,9 @@ app.use((req, res, next) => {
 });
 
 
-
 //rutas
 app.use(require('./routes/sesiones.routes'));
+/*
 app.use(require('./routes/admin.routes'));
 app.use(require('./routes/operador.routes'));
 app.use(require('./routes/usuarios.routes'));
@@ -106,9 +77,15 @@ app.use(require('./routes/promociones.routes'));
 app.use(require('./routes/pedido.routes'));
 app.use(require('./routes/pagos.routes'));
 app.use(require('./routes/local.routes'));
-app.use(require('./routes/publicacion.routes'));
-app.use(require('./routes/reportes.router'))
-app.use(require('./routes/sugerencias.routes'));
-app.use(require('./routes/cupones.router'));
-app.use(require('./routes/galeria.routes'));
-*/
+app.use(require('./routes/publicacion.routes'));*/
+
+
+
+//archivos estaticos
+app.use(express.static(path.join(__dirname,'public')));
+
+
+
+module.exports = app;
+
+

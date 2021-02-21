@@ -1,0 +1,46 @@
+<div class="account-container">
+
+    <div class="content">
+
+        <form action="/administrador/add" method="POST">
+
+            <img src="iconos/logo acerimallas.png" width="100%" height="250">
+
+            <label style="color:#ffffff;">Crea tu cuenta ahora</label>
+
+            <div class="field">
+                <input type="text" id="nombre" name="nombre" value="{{nombre}}" placeholder="Nombre" class="form-control" />
+            </div>
+
+            <div class="field">
+                <input type="text" id="apellido" name="apellido" value="{{apellido}}" placeholder="Apellido" class="form-control" />
+            </div>
+
+            <div class="field">
+                <input type="email" id="email" name="email" value="{{email}}" placeholder="Correo Electrónico" class="form-control" />
+            </div>
+
+            <div class="field">
+                <input type="password" id="password" name="password" value="" placeholder="Contraseña" class="form-control" />
+            </div>
+
+            <div class="field">
+                <input type="password" id="cpassword" name="cpassword" value="" placeholder="Confirmar Contraseña" class="form-control" />
+            </div>
+
+            <div class="field">
+                <span class="login-checkbox">
+                    <input id="Field" name="Field" type="checkbox" class="field login-checkbox" value="Si" tabindex="4" />
+                    <label class="choice" for="Field" style="color:#ffffff;" >Acepta los Terminos & Condiciones.</label>
+                </span>
+                <button class="button btn btn-success btn-lg btn-block">REGISTRARSE</button>
+                <div class="login-extra3">
+                    <a href="/login" style="color:#ffffff;">Regresar</a>
+                </div> <!-- /login-extra -->
+            </div> <!-- .actions -->
+
+        </form>
+
+    </div> <!-- /content -->
+
+</div> <!-- /account-container -->

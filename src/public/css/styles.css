@@ -1,0 +1,325 @@
+body {
+    background-image: url("../imagenes/ACERIMALLAS_ADMINISTRADOR-03.png");
+    background-size: cover;
+
+    font-family: 'Myriad Pro Regular';
+}
+
+@font-face {
+    font-family: 'Myriad Pro Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Myriad Pro Regular'), url('MYRIADPRO-REGULAR.woff') format('woff');
+}
+
+.account-container {
+    width: 480px;
+    
+	display: block;
+    margin: 60px auto 0 auto;
+    margin-bottom: 50px;
+	
+	background: #631b70;
+	
+	border: 5px solid #631b70;
+	
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+    border-radius: 5px;
+    
+    box-shadow:  2px 2px 7px #240606;
+
+}
+
+.content {
+	padding: 16px 28px 23px;
+} 
+
+.field{
+    margin-bottom: 2em;
+}
+
+.login-extra1 {
+    text-align: right;
+}
+
+.login-extra2 {
+    text-align: center;
+}
+
+.login-extra3 {
+    text-align: left;
+}
+
+.item {
+    padding: 20px 20px 20px 20px;
+
+    background: #ffffff;
+    
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.menu {
+    margin-left: 20%;
+    margin-top: 10%;
+    margin-right: 20%;
+
+    text-align: center;
+
+}
+
+/*nav bar*/
+.navbar {
+    background-image: url("../imagenes/FONDO.png");
+    height: 80px;
+    margin-left: 260px;
+}
+
+
+/*    switch */
+@media (min-width: 1200px) {
+	.navbar .search-query {
+		width: 200px;
+	}
+	
+}
+
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 40px;
+	height: 25px;
+  }
+  
+  .switch input { 
+	opacity: 0;
+	width: 0;
+	height: 0;
+  }
+  
+  .slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	-webkit-transition: .4s;
+	transition: .4s;
+  }
+  
+  .slider:before {
+	position: absolute;
+	content: "";
+	height: 20px;
+	width: 20px;
+    left: 1px;
+	bottom: 3px;
+	background-color: white;
+	-webkit-transition: .4s;
+	transition: .4s;
+  }
+  
+  input:checked + .slider {
+	background-color: #22ce13;
+  }
+  
+  input:focus + .slider {
+	box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+	-webkit-transform: translateX(18px);
+	-ms-transform: translateX(18px);
+	transform: translateX(18px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+	border-radius: 34px;
+  }
+  
+  .slider.round:before {
+	border-radius: 50%;
+  }
+
+  /* para los contenidos */
+
+  .main {
+    background-color: #ffffff;
+    margin-left: 260px;
+    height: 100%;
+    min-height: 708px;
+  }
+
+  .busqueda_parte{
+    margin-left: 100px;
+    margin-right: 100px;
+
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+  }
+
+  .redondeado {
+    border-radius: 5px;
+    background-color:  #edeef0;
+    border: 0;
+    height: 30px;
+    width: 300px;
+  }
+
+  .redondeado2 {
+    border-radius: 5px;
+    background-color:  #edeef0;
+    border: 0;
+    height: 30px;
+    width: 300px;
+    text-align: right;
+  }
+
+
+  .btn_personalizado {
+    background-color: #cb1189;
+    color: #ffffff;
+    min-width: 200px; 
+    max-width: 200px;
+    float: right;
+  }
+
+  .presentar{
+    text-align: center;
+    margin-left: 90px;
+    margin-right: 50px;
+  }
+
+  .cabecera{
+    background-color: #631b70;  
+  }
+
+  .sep{
+    padding-left: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 1rem;
+  }
+
+  .separador{
+    padding-bottom: 1rem;
+  }
+
+  .separador123{
+    padding-bottom: 1rem;
+    height: 120px;
+  }
+
+  .derecha{
+    float: right;
+  }
+
+  .spanp{
+    width: 450px;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .spang{
+    width: 600px;
+  }
+
+  .spans{
+    width: 250px;
+    padding-left: 4rem;
+  }
+  .spans2{
+    width: 300px;
+    padding-left: 10px;
+  }
+
+  .valores{
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+ 
+  .alert{
+    margin-left: 260px;
+    margin-top: 0px;
+    margin-right: 150px;
+    margin-bottom: 0px;
+  }
+
+  .table-template{
+    width: 100%;
+  }
+
+  .espaciado{
+    height: 200px;
+  }
+
+  .espaciado2{
+    height: 180px;
+  }
+
+ .redondeado_corto{
+  border-radius: 5px;
+  background-color:  #edeef0;
+  border: 0;
+  height: 30px;
+  width: 100px;
+ } 
+
+ .redondeado_busqueda{
+  border-radius: 5px;
+  background-color:  #edeef0;
+  border: 0;
+  height: 30px;
+  width: 280px;
+ }
+
+.tamano{
+  text-align: center;
+  padding-right: 4px;
+  padding-top: 4px;
+  padding-left: 4px;
+  padding-bottom: 4px;
+  margin-right: 15px;
+}
+
+.img_presentar{
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+}
+
+.img_presentar2{
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.img_presentar3{
+  border-radius: 5%;
+  width: 70px;
+  height: 100px;
+}
+  
+#map-template {
+  height: 180px;
+  width: 500px;
+  position: absolute;
+  background: chartreuse;
+}
+
+
+#map-template-all {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: chartreuse;
+}
