@@ -67,8 +67,8 @@ app.use((req, res, next) => {
 
 //rutas
 app.use(require('./routes/sesiones.routes'));
-/*
 app.use(require('./routes/admin.routes'));
+/*
 app.use(require('./routes/operador.routes'));
 app.use(require('./routes/usuarios.routes'));
 app.use(require('./routes/dash.routes'));

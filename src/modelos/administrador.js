@@ -7,7 +7,6 @@ const bcrip = require('bcryptjs');
     cidentidad: { type: String, required: true},
     email:      { type: String, required: true, unique: true},
     contrasena: { type: String, required: true},
-    cuenta: String,
     db: String,
     creacion: String,
     supervision: String,
@@ -19,8 +18,5 @@ AdminSchema.methods.encriptarPass = async contrasena => {
     return await bcrip.hash(contrasena, salt);
 };
 
-AdminSchema.methods.matchPass = async function(contrasena) {
-    return (await bcrip.compare(contrasena,this.contrasena));
-};
 
 module.exports = model('Administrador',AdminSchema);

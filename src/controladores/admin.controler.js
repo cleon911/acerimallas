@@ -16,7 +16,7 @@ adminCtrl.renderAdministradorForm = (req,res) => {
 adminCtrl.createAdministrador = async (req,res) => {
 
     const errors = [];
-    const{nombre,apellido,email,password,cpassword,Field} = req.body;
+    const{nombre,apellido,cidentidad,email,password,cpassword,Field} = req.body;
 
     if(password.length < 8){
         errors.push({text: 'Contraseña es muy corta'});
@@ -30,8 +30,12 @@ adminCtrl.createAdministrador = async (req,res) => {
         errors.push({text: 'No acepto los terminos y condiciones'});
     }
 
+    if(cidentidad.length!= 10){
+        errors.push({text: 'Cedula debe de tener 10 numeros'});     
+    }
+
     if(errors.length >0){
-        res.render('inicioadm/registro', {errors,nombre,apellido,email});
+        res.render('inicioadm/registro', {errors,nombre,apellido,cidentidad,email});
     }else {
         const emailUser = await admin.findOne({email: email}).lean();
         if(emailUser){
@@ -39,14 +43,12 @@ adminCtrl.createAdministrador = async (req,res) => {
             res.redirect('/registrop');
 
         }else {
-            let cuenta = `${nombre[0]}`+`${apellido}`;
             const new_admin = new admin();
             new_admin.nombre = nombre;
             new_admin.apellido = apellido;
+            new_admin.cidentidad=cidentidad;
             new_admin.email = email;
-            new_admin.contrasena=password;
-            //new_admin.contrasena = await new_admin.encriptarPass(password);
-            new_admin.cuenta = cuenta;
+            new_admin.contrasena = await new_admin.encriptarPass(password);
             new_admin.db =null;
             new_admin.creacion = null;
             new_admin.supervision = null;
@@ -64,10 +66,14 @@ adminCtrl.createAdministrador = async (req,res) => {
 adminCtrl.createAdministrador2 = async (req,res) => {
 
     const errors = [];
-    const {nombre,apellido,email,cuenta,contrasena,db,creacion,supervision} = req.body;
+    const {nombre,apellido,email,cidentidad,contrasena,db,creacion,supervision} = req.body;
 
     if(contrasena.length < 8){
         errors.push({text: 'Contraseña es muy corta, debe Registrar desde el principio'});
+    }
+
+    if(cidentidad.length!=10){
+        errors.push({text: 'Cedula de identidad debe de tener 10 numeros'});
     }
     
     if(errors.length >0){
@@ -83,9 +89,7 @@ adminCtrl.createAdministrador2 = async (req,res) => {
             new_admin.nombre = nombre;
             new_admin.apellido = apellido;
             new_admin.email = email;
-            new_admin.contrasena=contrasena;
-            //new_admin.contrasena = await new_admin.encriptarPass(contrasena);;
-            new_admin.cuenta = cuenta;
+            new_admin.contrasena = await new_admin.encriptarPass(contrasena);
             if(req.file){
                 new_admin.img= 'uploads/' + req.file.filename;
             }
@@ -115,6 +119,7 @@ adminCtrl.createAdministrador2 = async (req,res) => {
 };
 
 
+//arreglar los find de busqueda
 adminCtrl.findAdministrador  = async (req,res) => {
     const {buscadorBox} = req.body;
 
